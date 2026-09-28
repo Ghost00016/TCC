@@ -1,0 +1,287 @@
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
+
+<title>Histórico de Acessos</title>
+
+<link rel="stylesheet" href="/historico/style.css">
+
+<a href="/principal/" class="btn-voltar">
+    ← Voltar
+</a>
+
+<div class="cabecalho-historico">
+
+<div>
+    <h1>Histórico de Acessos</h1>
+
+    <p>
+        Pessoas que acessaram o sistema
+    </p>
+</div>
+
+<button
+    type="button"
+    id="btnAbrirFiltros"
+    class="btn-lupa"
+    title="Abrir filtros"
+    aria-label="Abrir filtros"
+    aria-expanded="false"
+>
+    <span class="icone-lupa"></span>
+</button>
+
+</div>
+
+<!-- FILTROS -->
+
+<div
+    class="filtros"
+    id="painelFiltros"
+    aria-hidden="true"
+>
+
+<!-- NOME -->
+
+<div class="filtro">
+    <label for="filtroNome">Nome</label>
+
+    <input
+        type="text"
+        id="filtroNome"
+        placeholder="Digite um nome..."
+    >
+</div>
+
+
+<!-- PERÍODO -->
+
+<div class="filtro filtro-periodo">
+
+    <label>Data</label>
+
+    <button
+        type="button"
+        class="campo-periodo"
+        id="btnPeriodoData"
+    >
+        <span class="icone-calendario"></span>
+
+        <span
+            id="textoPeriodoData"
+            class="texto-periodo"
+        >
+            Selecionar período
+        </span>
+
+        <span class="seta-periodo">⌄</span>
+    </button>
+
+
+    <div
+        class="periodo-dropdown"
+        id="periodoData"
+    >
+
+        <div class="periodo-campo">
+
+            <label for="filtroDataInicio">
+                Data inicial
+            </label>
+
+            <input
+                type="date"
+                id="filtroDataInicio"
+            >
+
+        </div>
+
+
+        <div class="periodo-separador">
+            até
+        </div>
+
+
+        <div class="periodo-campo">
+
+            <label for="filtroDataFim">
+                Data final
+            </label>
+
+            <input
+                type="date"
+                id="filtroDataFim"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HORÁRIO -->
+
+<div class="filtro filtro-periodo">
+
+    <label>Hora</label>
+
+    <button
+        type="button"
+        class="campo-periodo"
+        id="btnPeriodoHora"
+    >
+        <span class="icone-relogio"></span>
+
+        <span
+            id="textoPeriodoHora"
+            class="texto-periodo"
+        >
+            Selecionar horário
+        </span>
+
+        <span class="seta-periodo">⌄</span>
+    </button>
+
+
+    <div
+        class="periodo-dropdown"
+        id="periodoHora"
+    >
+
+        <div class="periodo-campo">
+
+            <label for="filtroHoraInicio">
+                Hora inicial
+            </label>
+
+            <input
+                type="time"
+                id="filtroHoraInicio"
+            >
+
+        </div>
+
+
+        <div class="periodo-separador">
+            até
+        </div>
+
+
+        <div class="periodo-campo">
+
+            <label for="filtroHoraFim">
+                Hora final
+            </label>
+
+            <input
+                type="time"
+                id="filtroHoraFim"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- LOCAL -->
+
+<div class="filtro">
+
+    <label for="filtroLocal">
+        Local
+    </label>
+
+    <select id="filtroLocal">
+
+        <option value="">
+            Todos os locais
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- STATUS -->
+
+<div class="filtro">
+
+    <label for="filtroStatus">
+        Status
+    </label>
+
+    <select id="filtroStatus">
+
+        <option value="">
+            Todos
+        </option>
+
+        <option value="autorizado">
+            Autorizado
+        </option>
+
+        <option value="nao autorizado">
+            Não Autorizado
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- BOTÕES -->
+
+<div class="botoes-filtro">
+
+    <button
+        type="button"
+        id="btnBuscar"
+        class="btn-buscar"
+    >
+        Buscar
+    </button>
+
+    <button
+        type="button"
+        id="btnLimpar"
+        class="btn-limpar"
+    >
+        Limpar filtros
+    </button>
+
+</div>
+
+</div>
+
+<div id="mensagem"></div>
+
+<table>
+
+<thead>
+
+    <tr>
+
+        <th>Nome</th>
+
+        <th>Data</th>
+
+        <th>Hora</th>
+
+        <th>Local</th>
+
+        <th>Status</th>
+
+    </tr>
+
+</thead>
+
+
+<tbody id="historico">
+    <!-- Registros serão adicionados pelo JavaScript -->
+</tbody>
+
+</table>
+
+<script src="/historico/script.js"></script>

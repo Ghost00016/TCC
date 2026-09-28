@@ -1,0 +1,126 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+
+  background-image: url('Fundo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.login {
+  width: 450px;
+  padding: 35px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-voltar {
+  padding: 9px 18px;
+  margin-bottom: 25px;
+  background-color: transparent;
+  color: #1e3a5f;
+  border: 2px solid #1e3a5f;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-voltar:hover {
+  background-color: #1e3a5f;
+  color: white;
+}
+
+.login h1 {
+  font-size: 30px;
+  color: #1e3a5f;
+  margin-bottom: 8px;
+  }
+
+.login > p {
+  color: #5b6470;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+#formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+#formulario label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #374151;
+}
+
+#formulario input {
+  width: 100%;
+  padding: 11px;
+  margin-bottom: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+#formulario input:focus {
+  border-color: #1e3a5f;
+  box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.1);
+}
+
+.btn-entrar {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  background-color: #1e3a5f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-entrar:hover {
+  background-color: #28527a;
+  transform: translateY(-1px);
+}
+
+#mensagem {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cadastro-login {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.cadastro-login span {
+  color: #1e3a5f;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}

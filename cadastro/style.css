@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+/* Caixa do cadastro */
+
+.cadastro {
+    width: 450px;
+    padding: 35px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão voltar */
+
+.btn-voltar {
+    padding: 9px 18px;
+    margin-bottom: 25px;
+    background-color: transparent;
+    color: #1e3a5f;
+    border: 2px solid #1e3a5f;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background-color: #1e3a5f;
+    color: white;
+}
+
+/* Título */
+
+.cadastro h1 {
+    font-size: 32px;
+    color: #1e3a5f;
+    margin-bottom: 8px;
+}
+
+/* Texto */
+
+.cadastro > p {
+    color: #5b6470;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+/* Formulário */
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+
+#formulario label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #374151;
+}
+
+/* Campos */
+
+#formulario input,
+#formulario select {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* Quando clicar no campo */
+
+#formulario input:focus,
+#formulario select:focus {
+    border-color: #1e3a5f;
+    box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.1);
+}
+
+/* Botão continuar */
+
+.btn-continuar {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    background-color: #1e3a5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-continuar:hover {
+    background-color: #28527a;
+    transform: translateY(-1px);
+}
+
+/* Mensagem */
+
+#mensagem {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Locais de acesso */
+
+.locais {
+width: 100%;
+margin-bottom: 16px;
+padding: 10px;
+border: 1px solid #cbd5e1;
+border-radius: 7px;
+max-height: 180px;
+overflow-y: auto;
+
+}
+
+.local-item {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 8px;
+
+}
+
+.local-item:last-child {
+margin-bottom: 0;
+}
+
+.local-checkbox {
+width: 16px !important;
+height: 16px;
+margin: 0 !important;
+cursor: pointer;
+
+}
+
+.local-item label {
+margin: 0 !important;
+font-size: 14px;
+font-weight: normal !important;
+cursor: pointer;
+
+}

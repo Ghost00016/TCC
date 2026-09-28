@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Locais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button class="btn-voltar" onclick="voltarPrincipal()">
+            ← Voltar
+        </button>
+
+        <h1>Controle de Locais</h1>
+        <p class="descricao">Cadastre e gerencie os locais do sistema.</p>
+
+        <form id="formLocal">
+            <label for="nome_local">Nome do local</label>
+            <input type="text" id="nome_local" placeholder="Digite o nome do local" maxlength="100" required>
+            <button type="submit" class="btn-cadastrar">
+                Cadastrar Local
+            </button>
+        </form>
+
+        <p id="mensagem"></p>
+
+        <h2>Locais cadastrados</h2>
+
+        <div id="listaLocais">
+            <p>Carregando locais...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

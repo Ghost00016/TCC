@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login">
+    <button class="btn-voltar" onclick="voltarInicial()">← Voltar</button>
+    <h1>Login</h1>
+    <p>Entre para acessar o sistema</p>
+
+    <form id="formulario">
+      <label for="usuario">Usuário</label>
+      <input type="text" id="usuario" placeholder="Digite seu usuário" maxlength="50" required>
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+      <button type="submit" class="btn-entrar">Entrar</button>
+
+      <p class="cadastro-login">
+        Não tem Login? <span onclick="irParaCadastro()">Cadastrar</span>
+      </p>
+    </form>
+
+    <div id="mensagem"></div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

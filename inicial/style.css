@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+  min-height: 100vh;
+
+  background-image: url('Fundo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+  color: #1e3a5f;
+}
+
+.container p {
+  font-size: 20px;
+  color: #5b6470;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.botoes {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  gap: 12px;
+}
+
+.botoes button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-login {
+  background-color: #1e3a5f;
+  color: white;
+}
+
+.btn-login:hover {
+  background-color: #28527a;
+  transform: translateY(-2px);
+}
+
+.btn-cadastro {
+  background-color: white;
+  color: #1e3a5f;
+  border: 2px solid #1e3a5f !important;
+}
+
+.btn-cadastro:hover {
+  background-color: #e8eef4;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Usuário</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cadastro">
+
+    <button class="btn-voltar" onclick="voltarInicial()">
+        ← Voltar
+    </button>
+
+    <h1>Cadastro</h1>
+    <p>Cadastre um novo usuário para acessar o sistema</p>
+
+    <form id="formulario">
+        <label for="usuario">Usuário</label>
+        <input type="text" id="usuario" placeholder="Digite o nome de usuário" maxlength="50" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite a senha" minlength="6" required>
+
+        <label for="confirmarSenha">Confirmar senha</label>
+        <input type="password" id="confirmarSenha" placeholder="Digite a senha novamente" minlength="6" required>
+
+        <button type="submit" class="btn-continuar">
+            Cadastrar Usuário
+        </button>
+
+    </form>
+
+    <button class="btn-login" onclick="irParaLogin()">
+      Já tem cadastro? <span>Entrar</span>
+    </button>
+
+    <div id="mensagem"></div>
+
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-caixa">
+        <div class="popup-icone">✓</div>
+        <h2>Cadastro realizado!</h2>
+        <p>O usuário foi cadastrado com sucesso.</p>
+        <button onclick="fecharPopup()">Continuar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
