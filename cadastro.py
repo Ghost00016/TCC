@@ -177,8 +177,8 @@ cv2.namedWindow(
 
 cv2.resizeWindow(
     NOME_JANELA,
-    800,
-    600
+    1200,
+    800
 )
 
 try:
@@ -202,7 +202,7 @@ def desenhar_informacoes(
 ):
     altura, largura = frame.shape[:2]
 
-    painel_h = 75
+    painel_h = 110
 
     painel = np.zeros(
         (painel_h, largura, 3),
@@ -225,8 +225,8 @@ def desenhar_informacoes(
 
     cv2.circle(
         painel,
-        (18, 23),
-        6,
+        (25, 35),
+        8,
         cor_status,
         -1
     )
@@ -234,33 +234,33 @@ def desenhar_informacoes(
     cv2.putText(
         painel,
         status,
-        (32, 29),
+        (45, 42),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.42,
+        0.6,
         cor_status,
-        1,
+        2, 
         cv2.LINE_AA
     )
 
     cv2.putText(
         painel,
         f"{tipo.upper()}  {tiradas_etapa}/{quantidade}",
-        (15, 60),
+        (20, 85),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.45,
+        0.65,
         (210, 210, 210),
-        1,
+        2,
         cv2.LINE_AA
     )
 
     cv2.putText(
         painel,
         f"TOTAL {fotos_tiradas}/20",
-        (190, 60),
+        (280, 85),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.45,
+        0.65,
         (100, 255, 100),
-        1,
+        2,
         cv2.LINE_AA
     )
 
@@ -269,8 +269,8 @@ def desenhar_informacoes(
     tamanho = cv2.getTextSize(
         texto,
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.5,
-        1
+        0.7,
+        2
     )[0]
 
     x_texto = largura // 2 - tamanho[0] // 2
@@ -278,11 +278,11 @@ def desenhar_informacoes(
     cv2.putText(
         painel,
         texto,
-        (x_texto, 29),
+        (x_texto, 42),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.5,
+        0.7,
         (0, 255, 255),
-        1,
+        2,
         cv2.LINE_AA
     )
 
@@ -291,19 +291,20 @@ def desenhar_informacoes(
     tamanho_cancelar = cv2.getTextSize(
         texto_cancelar,
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.4,
+        0.55,
         1
     )[0]
 
+    # Fonte do comando ESC aumentada para 0.55
     cv2.putText(
         painel,
         texto_cancelar,
         (
-            largura - tamanho_cancelar[0] - 15,
-            29
+            largura - tamanho_cancelar - 20,
+            42
         ),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.4,
+        0.55,
         (180, 180, 180),
         1,
         cv2.LINE_AA
