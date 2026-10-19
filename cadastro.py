@@ -167,6 +167,7 @@ if face_cascade.empty():
     banco.close()
     sys.exit(1)
 
+
 # Janela
 NOME_JANELA = "Cadastro Facial"
 
@@ -177,8 +178,8 @@ cv2.namedWindow(
 
 cv2.resizeWindow(
     NOME_JANELA,
-    1200,
-    800
+    1440,
+    950
 )
 
 try:
@@ -189,6 +190,7 @@ try:
     )
 except Exception:
     pass
+
 
 # Interface
 def desenhar_informacoes(
@@ -202,31 +204,35 @@ def desenhar_informacoes(
 ):
     altura, largura = frame.shape[:2]
 
-    painel_h = 110
+    painel_h = 165
 
     painel = np.zeros(
         (painel_h, largura, 3),
         dtype=np.uint8
     )
 
-    painel[:] = (
-        25,
-        30,
-        40
-    )
+    painel[:] = (25, 30, 40)
 
+    # Separador superior
     cv2.line(
         painel,
         (0, 0),
         (largura, 0),
         (70, 80, 95),
-        1
+        2
     )
 
+    # Tamanhos de fonte
+    fonte_status = 0.85
+    fonte_etapa = 0.85
+    fonte_comando = 0.80
+    espessura = 2
+
+    # Linha 1: status do rosto
     cv2.circle(
         painel,
-        (25, 35),
-        8,
+        (28, 35),
+        9,
         cor_status,
         -1
     )
@@ -234,87 +240,108 @@ def desenhar_informacoes(
     cv2.putText(
         painel,
         status,
-        (45, 42),
+        (50, 44),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.6,
+        fonte_status,
         cor_status,
-        2, 
+        espessura,
         cv2.LINE_AA
     )
 
-    cv2.putText(
-        painel,
-        f"{tipo.upper()}  {tiradas_etapa}/{quantidade}",
-        (20, 85),
-        cv2.FONT_HERSHEY_SIMPLEX,
-        0.65,
-        (210, 210, 210),
-        2,
-        cv2.LINE_AA
-    )
-
-    cv2.putText(
-        painel,
-        f"TOTAL {fotos_tiradas}/20",
-        (280, 85),
-        cv2.FONT_HERSHEY_SIMPLEX,
-        0.65,
-        (100, 255, 100),
-        2,
-        cv2.LINE_AA
-    )
-
-    texto = "ESPACO = FOTO"
-
-    tamanho = cv2.getTextSize(
-        texto,
-        cv2.FONT_HERSHEY_SIMPLEX,
-        0.7,
-        2
-    )[0]
-
-    x_texto = largura // 2 - tamanho[0] // 2
-
-    cv2.putText(
-        painel,
-        texto,
-        (x_texto, 42),
-        cv2.FONT_HERSHEY_SIMPLEX,
-        0.7,
-        (0, 255, 255),
-        2,
-        cv2.LINE_AA
-    )
-
-    texto_cancelar = "ESC = CANCELAR"
+    # Linha 1: comando para cancelar
+    texto_cancelar = "ESC - CANCELAR"
 
     tamanho_cancelar = cv2.getTextSize(
         texto_cancelar,
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.55,
-        1
+        fonte_comando,
+        espessura
     )[0]
 
-    # Fonte do comando ESC aumentada para 0.55
     cv2.putText(
         painel,
         texto_cancelar,
         (
-            largura - tamanho_cancelar - 20,
-            42
+            largura - tamanho_cancelar[0] - 25,
+            44
         ),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.55,
-        (180, 180, 180),
-        1,
+        fonte_comando,
+        (190, 190, 190),
+        espessura,
         cv2.LINE_AA
     )
 
-    frame_final = np.vstack(
+    # Linha 2: etapa atual
+    texto_etapa = (
+        f"POSICAO: {tipo.upper()}  "
+        f"FOTOS: {tiradas_etapa}/{quantidade}"
+    )
+
+    cv2.putText(
+        painel,
+        texto_etapa,
+        (25, 91),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        fonte_etapa,
+        (230, 230, 230),
+        espessura,
+        cv2.LINE_AA
+    )
+
+    # Linha 2: total de fotos
+    texto_total = f"TOTAL: {fotos_tiradas}/20"
+
+    tamanho_total = cv2.getTextSize(
+        texto_total,
+        cv2.FONT_HERSHEY_SIMPLEX,
+        fonte_etapa,
+        espessura
+    )[0]
+
+    cv2.putText(
+        painel,
+        texto_total,
         (
-            frame,
-            painel
-        )
+            largura - tamanho_total[0] - 25,
+            91
+        ),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        fonte_etapa,
+        (100, 255, 100),
+        espessura,
+        cv2.LINE_AA
+    )
+
+    # Linha 3: instrução principal
+    texto_espaco = "PRESSIONE ESPACO PARA TIRAR A FOTO"
+
+    tamanho_espaco = cv2.getTextSize(
+        texto_espaco,
+        cv2.FONT_HERSHEY_SIMPLEX,
+        fonte_comando,
+        espessura
+    )[0]
+
+    x_espaco = max(
+        20,
+        (largura - tamanho_espaco[0]) // 2
+    )
+
+    cv2.putText(
+        painel,
+        texto_espaco,
+        (x_espaco, 140),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        fonte_comando,
+        (0, 255, 255),
+        espessura,
+        cv2.LINE_AA
+    )
+
+    # Junta a imagem da câmera com o painel
+    frame_final = np.vstack(
+        (frame, painel)
     )
 
     return frame_final
